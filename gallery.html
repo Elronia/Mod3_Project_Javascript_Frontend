@@ -3,12 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Interactive Art Gallery</title>
     <link rel="stylesheet" href="gallery.css">
     <script defer src="gallery.js"></script>
 </head>
 <body>
-    <div id = "img-box">
-    </div>
+    <!--I want to use js to hide header on log in page-->
+    <header>
+        <nav id = "nav-bar">
+            <ul>
+                <li> <a href="#">Interactive Art Gallery</a></li>
+                <li> <a href="#"> Favorites </a></li>
+                <li> <a href="#"> Artists</a></li>
+                <li class = "move-right">Logged in as: <span>username</span></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id = "page-container"></div>
 </body>
 </html>
