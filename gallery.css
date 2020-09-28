@@ -52,3 +52,9 @@ a{
     padding:10px;
     margin:10px;
 }
+
+.artist-page-li{
+    font-size:64px;
+    font-family: "Helvetica Now";
+    margin:10px;
+}

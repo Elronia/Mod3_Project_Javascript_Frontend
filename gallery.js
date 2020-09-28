@@ -2,7 +2,6 @@ const paintingsUrl = "http://localhost:3000/paintings"
 const painterUrl = "http://localhost:3000/painters"
 //Stable elements
 const pageContainer = document.querySelector("div#page-container")
-console.log(pageContainer)
 
 
 
@@ -32,8 +31,8 @@ function turnObjectToImage(paintingObject){
     //create img tag with styling
     const imageElement = document.createElement("img")
     imageElement.src = image
-    imageElement.style.height = "400px"
-    imageElement.style.maxWidth = "85%"
+    imageElement.style.height = "500px"
+    imageElement.style.maxWidth = "400px"
 
     //create full-size and favorite buttons
     const buttonDiv = document.createElement("div")
@@ -52,7 +51,7 @@ function turnObjectToImage(paintingObject){
 //Display list of painters when user clicks on Artist
 function displayPainters() {
     //clear out pageContainer
-    pageContainer.innerText = ""
+    document.body.querySelector("div#page-container").remove()
     //fecth request to get array of painters
     fetch(painterUrl)
         .then(res => res.json())
@@ -62,14 +61,16 @@ function displayPainters() {
             painters.forEach(painterObj => {
                 const li = document.createElement("li") 
                 li.innerText = painterObj.name 
+                li.style.display = "block"
+                li.className = "artist-page-li"
                 ul.append(li)
             })
-            pageContainer.append(ul)
-            pageContainer.style.flexDirection = "column"
+            document.body.append(ul)
         })
 }
 
-displayGallery()
+//displayGallery()
+displayPainters()
 
 
 
