@@ -26,3 +26,29 @@ a{
 .move-right{
     float:right;
 }
+
+#page-container{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 15px;
+}
+
+#page-container > div{
+    display:flex;
+    flex-direction: column;
+    margin: 15px;
+}
+
+.btn-side-by-side{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.btn-side-by-side > button{
+    width: 45%;
+    padding:10px;
+    margin:10px;
+}

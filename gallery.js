@@ -13,10 +13,17 @@ fetch(paintingsUrl)
         const imageElement = document.createElement("img")
         imageElement.src = image
         imageElement.style.height = "400px"
-        imageElement.style.width = "325px"
+        imageElement.style.maxWidth = "85%"
+
+        const buttonDiv = document.createElement("div")
+        buttonDiv.className = "btn-side-by-side"
         const fullSizeButton = document.createElement("button")
+        fullSizeButton.innerText = "see full size"
         const favoriteButton = document.createElement("button")
-        imageDiv.append(imageElement, fullSizeButton, favoriteButton)
+        favoriteButton.innerText = "favorite ♥️"
+        buttonDiv.append(fullSizeButton, favoriteButton)
+
+        imageDiv.append(imageElement,buttonDiv)
         pageContainer.append(imageDiv)
     })
 
