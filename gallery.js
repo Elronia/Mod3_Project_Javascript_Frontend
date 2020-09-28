@@ -27,12 +27,13 @@ function displayGallery(){
 function turnObjectToImage(paintingObject){
     const image = paintingObject.image
     const imageDiv = document.createElement("div")
+    imageDiv.className = "artist-page-images"
 
     //create img tag with styling
     const imageElement = document.createElement("img")
     imageElement.src = image
     imageElement.style.height = "500px"
-    imageElement.style.maxWidth = "400px"
+    imageElement.style.maxWidth = "auto"
 
     //create full-size and favorite buttons
     const buttonDiv = document.createElement("div")
@@ -58,10 +59,19 @@ function displayPainters() {
         .then(painters => {
             //use for each to create unstable list elements
             const artistNameDiv = document.createElement("div")
+
             const artistPictureDiv = document.createElement("div")
-            artistPictureDiv.style.position = "sticky"
+            const painterImageUl = document.createElement("ul")
+            artistPictureDiv.append(painterImageUl)
+
+            const ulDiv = document.createElement("div")
             const ul = document.createElement("ul")
             painters.forEach((painterObj) => {
+                //generates painter images on the side of li with painter names
+                const painterImageLi = generatePainterImages(painterObj)
+                painterImageUl.append(painterImageLi)
+
+
                 const li = document.createElement("li") 
                 li.innerText = painterObj.name 
                 li.style.display = "block"
@@ -69,26 +79,45 @@ function displayPainters() {
                 ul.append(li)
                 // Event Listener for artist Li
                 li.addEventListener("mouseover", () => {
-                    artistPictureDiv.innerText = ""
-                    const artistImage = painterObj.portrait
-                    const imageTag = document.createElement("img")
-                    imageTag.src = artistImage
-                    imageTag.style.width = "200px"
-                    imageTag.style.height = "250px"
-                    artistPictureDiv.append(imageTag)
+                    // artistPictureDiv.innerText = ""
+                    // const artistImage = painterObj.portrait
+                    // const imageTag = document.createElement("img")
+                    // imageTag.src = artistImage
+                    // imageTag.style.width = "auto"
+                    // imageTag.style.height = "250px"
+                    // artistPictureDiv.append(imageTag)
                 })
                 
             })
+            ulDiv.append(ul)
             
-            artistNameDiv.append(ul)
-            pageContainer.append(artistNameDiv, artistPictureDiv)
+            artistNameDiv.append(ulDiv, artistPictureDiv)
+            pageContainer.append(artistNameDiv)
             pageContainer.style.justifyContent = "flex-start"
             pageContainer.style.flexWrap = "nowrap"
         })
 }
 
+
+
+//helper function for displayPainters
+function generatePainterImages(painterObj){
+    const painterImageLi = document.createElement("li")
+    painterImageLi.style.display = "none"
+    const painterImage = document.createElement("img")
+    painterImage.style.width = "auto"
+    painterImage.style.height = "250px"
+
+    painterImage.src = painterObj.portrait
+
+    painterImageLi.append(painterImage)
+    return painterImageLi
+}
+
+
 // displayGallery()
 displayPainters()
+
 
 
 
