@@ -51,25 +51,43 @@ function turnObjectToImage(paintingObject){
 //Display list of painters when user clicks on Artist
 function displayPainters() {
     //clear out pageContainer
-    document.body.querySelector("div#page-container").remove()
+    // document.body.querySelector("div#page-container").remove()
     //fecth request to get array of painters
     fetch(painterUrl)
         .then(res => res.json())
         .then(painters => {
             //use for each to create unstable list elements
+            const artistNameDiv = document.createElement("div")
+            const artistPictureDiv = document.createElement("div")
+            artistPictureDiv.style.position = "sticky"
             const ul = document.createElement("ul")
-            painters.forEach(painterObj => {
+            painters.forEach((painterObj) => {
                 const li = document.createElement("li") 
                 li.innerText = painterObj.name 
                 li.style.display = "block"
                 li.className = "artist-page-li"
                 ul.append(li)
+                // Event Listener for artist Li
+                li.addEventListener("mouseover", () => {
+                    artistPictureDiv.innerText = ""
+                    const artistImage = painterObj.portrait
+                    const imageTag = document.createElement("img")
+                    imageTag.src = artistImage
+                    imageTag.style.width = "200px"
+                    imageTag.style.height = "250px"
+                    artistPictureDiv.append(imageTag)
+                })
+                
             })
-            document.body.append(ul)
+            
+            artistNameDiv.append(ul)
+            pageContainer.append(artistNameDiv, artistPictureDiv)
+            pageContainer.style.justifyContent = "flex-start"
+            pageContainer.style.flexWrap = "nowrap"
         })
 }
 
-//displayGallery()
+// displayGallery()
 displayPainters()
 
 

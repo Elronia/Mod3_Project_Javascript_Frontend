@@ -34,12 +34,12 @@ a{
     flex-wrap: wrap;
     margin: 15px;
 }
-
+/* 
 #page-container > div{
     display:flex;
     flex-direction: column;
     margin: 15px;
-}
+} */
 
 .btn-side-by-side{
     display:flex;
