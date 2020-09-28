@@ -1,4 +1,5 @@
 const paintingsUrl = "http://localhost:3000/paintings"
+const painterUrl = "http://localhost:3000/painters"
 //Stable elements
 const pageContainer = document.querySelector("div#page-container")
 console.log(pageContainer)
@@ -44,9 +45,31 @@ function turnObjectToImage(paintingObject){
 
     //append unstable elements to pageContainer
     buttonDiv.append(fullSizeButton, favoriteButton)
-    imageDiv.append(imageElement,buttonDiv)
+    imageDiv.append(imageElement, buttonDiv)
     pageContainer.append(imageDiv)
 }
+
+//Display list of painters when user clicks on Artist
+function displayPainters() {
+    //clear out pageContainer
+    pageContainer.innerText = ""
+    //fecth request to get array of painters
+    fetch(painterUrl)
+        .then(res => res.json())
+        .then(painters => {
+            //use for each to create unstable list elements
+            const ul = document.createElement("ul")
+            painters.forEach(painterObj => {
+                const li = document.createElement("li") 
+                li.innerText = painterObj.name 
+                ul.append(li)
+            })
+            pageContainer.append(ul)
+            pageContainer.style.flexDirection = "column"
+        })
+}
+
+displayGallery()
 
 
 
