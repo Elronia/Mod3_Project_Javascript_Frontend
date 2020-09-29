@@ -6,9 +6,13 @@ const pageContainer = document.querySelector("div#page-container")
 const gallery = document.querySelector("#gallery")
 const favorites = document.querySelector("#favorites")
 const artists = document.querySelector("#artists")
+const loggedIn = document.querySelector("#logged-in")
 
 
 
+
+
+//========================DOM Manipulation=================================
 
 //function to be executed on click of Art galery link
 function displayGallery(){
@@ -78,6 +82,9 @@ function displayPainters() {
                 ul.append(li)
                 // Event Listener for artist Li
                 li.addEventListener("click", () => {
+
+                    //styling for artist show page
+
                     pageContainer.innerText = ""
                     const painterPortrait = document.createElement("img")
                     painterPortrait.className = "artist-image-resize"
@@ -103,7 +110,6 @@ function displayPainters() {
             artistNameDiv.append(ulDiv, artistPictureDiv)
             pageContainer.append(artistNameDiv)
             pageContainer.style.justifyContent = "flex-start"
-            pageContainer.style.flexWrap = "nowrap"
         })
 }
 
@@ -124,7 +130,39 @@ function generatePainterImages(painterObj){
 }
 
 //Login function
-function logIn(){  
+
+
+//dispayLogInForm form helper function
+function logIn(formData){
+    fetch(loginUrl, {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json",
+            Accept: "application/json"
+        },
+        body: JSON.stringify({
+        username:formData
+        })
+    })
+    .then(res => res.json())
+    .then(user => {
+        if (user.id){
+            loggedIn.innerText = user.username
+        }
+        else{
+            alert("something went wrong")
+        }
+    })
+}
+
+//displayLogInForm helper that removes the log in form
+
+function removeLogInForm(){
+    const logInInputs = document.body.querySelectorAll("input")
+    logInInputs.forEach( input => input.remove())
+}
+
+function displayLogInForm(){  
     pageContainer.innerText = ""
     //create a form
     const form = document.createElement("form");
@@ -145,24 +183,28 @@ function logIn(){
     form.addEventListener("submit", (evt) => {
         evt.preventDefault()
         const user = evt.target.username.value
+        console.log(user)
         //fetch request for Login
-        fetch(loginUrl, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: {
-                username: "user"
-            }
-        })
-        .then(res => res.json())
-        .then(user => console.log(user))
+        logIn(user)
+        pageContainer.innerText = ""
+        removeLogInForm()
+        displayGallery()
     })
   }
+
+
+  // Log out functionality
+
+
+
+
+
+//========================Event Listeners=================================
 
 //gallery Event Listener
 gallery.addEventListener("click", () => {
     pageContainer.innerText = ""
+    pageContainer.style.justifyContent = "center"
     displayGallery()
 })
 
@@ -178,7 +220,6 @@ artists.addEventListener("click", () => {
 //     displayFavorites()
 // })
 
-logIn()
 
 
 
@@ -191,15 +232,4 @@ logIn()
 
 
 
-
-
-
-
- // imageElement.addEventListener("click", () =>{
-    //     console.log(paintingsArr)
-    //     //converting html collection to js array
-    //     const htmlArray = Array.from(imgBox.children)
-    //     htmlArray.forEach( child => child.remove())
-
-    //     imgBox.innerText = `${paintingsArr[0].painter.name}\n${paintingsArr[0].painter.nationality}\n${paintingsArr[0].painter.years}`
-    // })
+displayLogInForm()
