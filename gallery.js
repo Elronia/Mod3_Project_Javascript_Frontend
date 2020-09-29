@@ -217,8 +217,10 @@ function displayLogInForm(){
   function logOut(btn){
     //need to get rid of log out button that was appended during log in
     //and switch the text back to Not logged in yet like it was at the beginning
+    //also need to clear out localStorage
     btn.remove()
     loggedIn.innerText = "Not Logged in yet"
+    localStorage.clear()
     displayLogInForm()
   }
 
