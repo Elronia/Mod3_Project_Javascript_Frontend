@@ -163,6 +163,8 @@ function removeLogInForm(){
 }
 
 function displayLogInForm(){  
+    //creates a form to use to log in
+
     pageContainer.innerText = ""
     //create a form
     const form = document.createElement("form");
@@ -178,12 +180,11 @@ function displayLogInForm(){
     // add all elements to the form
     form.append(input,submit);
   // add the form inside the body
-  document.getElementsByTagName('body')[0].append(form); //pure javascript
+    pageContainer.append(form); //pure javascript
     // Event Listener for form
     form.addEventListener("submit", (evt) => {
         evt.preventDefault()
         const user = evt.target.username.value
-        console.log(user)
         //fetch request for Login
         logIn(user)
         pageContainer.innerText = ""
@@ -231,5 +232,6 @@ artists.addEventListener("click", () => {
 
 
 
+//==========================render starting page=========================
 
 displayLogInForm()
