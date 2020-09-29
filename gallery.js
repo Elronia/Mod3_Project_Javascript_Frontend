@@ -219,7 +219,7 @@ function displayLogInForm(){
     //and switch the text back to Not logged in yet like it was at the beginning
     //also need to clear out localStorage
     btn.remove()
-    loggedIn.innerText = "Not Logged in yet"
+    loggedIn.innerText = "Not Logged in Yet"
     localStorage.clear()
     displayLogInForm()
   }
