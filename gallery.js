@@ -1,6 +1,7 @@
 const paintingsUrl = "http://localhost:3000/paintings"
-const painterUrl = "http://localhost:3000/painters"
+const paintersUrl = "http://localhost:3000/painters"
 const loginUrl = "http://localhost:3000/login"
+const favoritesUrl = "http://localhost:3000/favorites"
 //Stable elements
 const pageContainer = document.querySelector("div#page-container")
 const gallery = document.querySelector("#gallery")
@@ -57,7 +58,7 @@ function displayPainters() {
     //clear out pageContainer
     // document.body.querySelector("div#page-container").remove()
     //fecth request to get array of painters
-    fetch(painterUrl)
+    fetch(paintersUrl)
         .then(res => res.json())
         .then(painters => {
             //use for each to create unstable list elements
@@ -147,6 +148,7 @@ function logIn(formData){
     .then(res => res.json())
     .then(user => {
         if (user.id){
+            localStorage.setItem('user_id', user.id)
             loggedIn.innerText = user.username
         }
         else{
@@ -197,7 +199,12 @@ function displayLogInForm(){
   // Log out functionality
 
 
-
+//Display favorites
+function displayFavorites(userString, paintingId) {
+    fetch(`http://localhost:3000/users/${localStorage.user_id}`)
+        .then(res => res.json())
+        .then(user => console.log(user))
+}
 
 
 //========================Event Listeners=================================
