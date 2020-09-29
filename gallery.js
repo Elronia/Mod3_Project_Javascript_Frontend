@@ -1,12 +1,11 @@
 const paintingsUrl = "http://localhost:3000/paintings"
 const painterUrl = "http://localhost:3000/painters"
+const loginUrl = "http://localhost:3000/login"
 //Stable elements
 const pageContainer = document.querySelector("div#page-container")
-
-
-
-
-
+const gallery = document.querySelector("#gallery")
+const favorites = document.querySelector("#favorites")
+const artists = document.querySelector("#artists")
 
 
 
@@ -78,14 +77,24 @@ function displayPainters() {
                 li.className = "artist-page-li"
                 ul.append(li)
                 // Event Listener for artist Li
-                li.addEventListener("mouseover", () => {
-                    // artistPictureDiv.innerText = ""
-                    // const artistImage = painterObj.portrait
-                    // const imageTag = document.createElement("img")
-                    // imageTag.src = artistImage
-                    // imageTag.style.width = "auto"
-                    // imageTag.style.height = "250px"
-                    // artistPictureDiv.append(imageTag)
+                li.addEventListener("click", () => {
+                    pageContainer.innerText = ""
+                    const painterPortrait = document.createElement("img")
+                    painterPortrait.className = "artist-image-resize"
+                    const painterName = document.createElement("p")
+                    const painterYears = document.createElement("p")
+                    const painterGenre = document.createElement("p")
+                    const painterNationality = document.createElement("p")
+                    const painterBio = document.createElement("p")
+                    //putting info into a variable we just created
+                    painterPortrait.src = painterObj.portrait
+                    painterName.innerText = painterObj.name
+                    painterYears.innerText = painterObj.years
+                    painterGenre.innerText = painterObj.genre
+                    painterNationality.innerText = painterObj.nationality
+                    painterBio.innerText = painterObj.bio
+                    //append to page container
+                    pageContainer.append(painterPortrait, painterName, painterYears, painterGenre, painterNationality, painterBio)
                 })
                 
             })
@@ -114,9 +123,63 @@ function generatePainterImages(painterObj){
     return painterImageLi
 }
 
+//Login function
+function logIn(){  
+    pageContainer.innerText = ""
+    //create a form
+    const form = document.createElement("form");
+    //create input element
+    const input = document.createElement("input");
+    input.type = "text";
+    input.name = "username";
+    input.id = "username";
+    //create a button
+    const submit = document.createElement("input");
+    submit.type = "submit";
+    submit.value = "Submit";
+    // add all elements to the form
+    form.append(input,submit);
+  // add the form inside the body
+  document.getElementsByTagName('body')[0].append(form); //pure javascript
+    // Event Listener for form
+    form.addEventListener("submit", (evt) => {
+        evt.preventDefault()
+        const user = evt.target.username.value
+        //fetch request for Login
+        fetch(loginUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: {
+                username: "user"
+            }
+        })
+        .then(res => res.json())
+        .then(user => console.log(user))
+    })
+  }
 
-// displayGallery()
-displayPainters()
+//gallery Event Listener
+gallery.addEventListener("click", () => {
+    pageContainer.innerText = ""
+    displayGallery()
+})
+
+//artists Event Listener
+artists.addEventListener("click", () => {
+    pageContainer.innerText = ""
+    displayPainters()
+})
+
+// //favorites Event Listener
+// favorites.addEventListener("click", () => {
+//     pageContainer.innerText = ""
+//     displayFavorites()
+// })
+
+logIn()
+
 
 
 
