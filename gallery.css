@@ -5,6 +5,9 @@ html,body{
 
 body{
     min-height:100vh;
+    /* display:flex;
+    flex-direction:column;
+    align-content:center; */
 }
 
 header{
@@ -33,7 +36,7 @@ a{
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 15px;
+    /* margin: 15px; */
 }
 
 .artist-page-images{
@@ -80,5 +83,19 @@ a{
 .artist-image-resize{
     height: 300px;
     width: auto;
+}
+
+.logOutBtn{
+    padding:10px;
+    background-color:firebrick;
+    color:white;
+    border: solid firebrick;
+    border-radius: 15%;
+}
+
+.logOutBtn:hover{
+    color:red;
+    background-color: white;
+    cursor: pointer;
 }
 

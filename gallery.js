@@ -8,6 +8,7 @@ const gallery = document.querySelector("#gallery")
 const favorites = document.querySelector("#favorites")
 const artists = document.querySelector("#artists")
 const loggedIn = document.querySelector("#logged-in")
+const navBar = document.querySelector("ul")
 
 
 
@@ -190,6 +191,22 @@ function displayLogInForm(){
         //fetch request for Login
         logIn(user)
         pageContainer.innerText = ""
+
+        //add a log out button
+        const logOutBtn = document.createElement("li")
+        logOutBtn.innerText = "Log Out"
+
+        //add class from css file that makes logoutBtn ook like a button
+        logOutBtn.className = "logOutBtn move-right"
+
+        //add event listener to let user log out
+        logOutBtn.addEventListener("click", ()=>{
+            logOut(logOutBtn)
+        })
+
+        //append log out button to navbar
+        navBar.append(logOutBtn)
+
         removeLogInForm()
         displayGallery()
     })
@@ -197,14 +214,46 @@ function displayLogInForm(){
 
 
   // Log out functionality
+  function logOut(btn){
+    //need to get rid of log out button that was appended during log in
+    //and switch the text back to Not logged in yet like it was at the beginning
+    btn.remove()
+    loggedIn.innerText = "Not Logged in yet"
+    displayLogInForm()
+  }
 
 
 //Display favorites
-function displayFavorites(userString, paintingId) {
+function displayFavorites(user_id) {
     fetch(`http://localhost:3000/users/${localStorage.user_id}`)
         .then(res => res.json())
-        .then(user => console.log(user))
+        .then(user => {
+            createFavorites(user.paintings)     
+        })
 }
+
+//helper function for display favorites
+function createFavorites(favoritePaintingsArr){
+    //create div element
+    const favoriteDiv = document.createElement("div")
+
+    //iterate over favoriteArr to append html of favorite to div
+    favoritePaintingsArr.forEach( painting => {
+        const pTag = document.createElement("p") //the title of the painting goes here
+        pTag.innerText = painting.name
+
+        const imageElement = document.createElement("img") //the painting goes here
+        imageElement.src = painting.image
+        imageElement.className = "artist-image-resize"
+
+        //append to div
+        favoriteDiv.append(pTag, imageElement)
+        
+        //append new div to page container
+        pageContainer.append(favoriteDiv)
+    })
+}
+
 
 
 //========================Event Listeners=================================
@@ -222,11 +271,12 @@ artists.addEventListener("click", () => {
     displayPainters()
 })
 
-// //favorites Event Listener
-// favorites.addEventListener("click", () => {
-//     pageContainer.innerText = ""
-//     displayFavorites()
-// })
+//favorites Event Listener
+favorites.addEventListener("click", () => {
+    //clear out page container to make room for user favorites div
+    pageContainer.innerText = ""
+    displayFavorites()
+})
 
 
 
