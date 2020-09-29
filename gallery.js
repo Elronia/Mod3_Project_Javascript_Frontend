@@ -52,6 +52,12 @@ function turnObjectToImage(paintingObject){
     buttonDiv.append(fullSizeButton, favoriteButton)
     imageDiv.append(imageElement, buttonDiv)
     pageContainer.append(imageDiv)
+
+    //Add Event Listener to Favorite button
+    favoriteButton.addEventListener("click", () => {
+        addFavorite(paintingObject)
+    })
+    
 }
 
 //Display list of painters when user clicks on Artist
@@ -256,6 +262,27 @@ function createFavorites(favoritePaintingsArr){
     })
 }
 
+// Function to add favorite
+function addFavorite(paintingObj) {
+    fetch(favoritesUrl, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+        },
+        body: JSON.stringify({
+                painting_id: paintingObj, 
+                user_id: localStorage.user_id
+            })
+    })
+    .then(res => res.text())
+    .then(favorites => {
+        console.log(favorites)
+        // console.log(paintingObj)
+        // Use PaintingObj to create a new favorite in backend
+        
+    })
+}
 
 
 //========================Event Listeners=================================
