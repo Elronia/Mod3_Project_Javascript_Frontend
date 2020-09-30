@@ -53,6 +53,12 @@ function turnObjectToImage(paintingObject){
     imageDiv.append(imageElement, buttonDiv)
     pageContainer.append(imageDiv)
 
+    //Add Event Listener to See Full Size Button
+    fullSizeButton.addEventListener("click", () => {
+        pageContainer.innerText = ""
+        dispayPaintingShow(paintingObject)
+    })
+
     //Add Event Listener to Favorite button
     favoriteButton.addEventListener("click", () => {
         addFavorite(paintingObject)
@@ -90,26 +96,8 @@ function displayPainters() {
                 ul.append(li)
                 // Event Listener for artist Li
                 li.addEventListener("click", () => {
+                    displayArtist(painterObj)
 
-                    //styling for artist show page
-
-                    pageContainer.innerText = ""
-                    const painterPortrait = document.createElement("img")
-                    painterPortrait.className = "artist-image-resize"
-                    const painterName = document.createElement("p")
-                    const painterYears = document.createElement("p")
-                    const painterGenre = document.createElement("p")
-                    const painterNationality = document.createElement("p")
-                    const painterBio = document.createElement("p")
-                    //putting info into a variable we just created
-                    painterPortrait.src = painterObj.portrait
-                    painterName.innerText = painterObj.name
-                    painterYears.innerText = painterObj.years
-                    painterGenre.innerText = painterObj.genre
-                    painterNationality.innerText = painterObj.nationality
-                    painterBio.innerText = painterObj.bio
-                    //append to page container
-                    pageContainer.append(painterPortrait, painterName, painterYears, painterGenre, painterNationality, painterBio)
                 })
                 
             })
@@ -119,6 +107,64 @@ function displayPainters() {
             pageContainer.append(artistNameDiv)
             pageContainer.style.justifyContent = "flex-start"
         })
+}
+
+function dispayPaintingShow(paintingObj){
+    //alread have access to the painting from the argument
+    const paintingDiv = document.createElement("div")
+    const paintingImage = document.createElement("img")
+    paintingImage.className = "artist-image-resize"
+    const paintingName = document.createElement("p")
+    const yearMade = document.createElement("p")
+
+    paintingImage.src = paintingObj.image
+    paintingName.innerText = paintingObj.name
+    yearMade.innerText = paintingObj.year
+
+    const painterDiv = document.createElement("div")
+    const painterImage = document.createElement("img")
+    const painterName = document.createElement("p")
+    const painterNationality = document.createElement("p")
+    const genre = document.createElement("p")
+
+    const learnMore = document.createElement("button")
+    
+    painterImage.src = paintingObj.painter.portrait
+    painterName.innerText = paintingObj.painter.name
+    painterNationality.innerText = paintingObj.painter.nationality
+    genre.innerText = paintingObj.painter.genre
+
+    //append everything to page
+    paintingDiv.append(paintingImage,paintingName,yearMade)
+    painterDiv.append(painterImage,painterName,painterNationality,genre)
+    pageContainer.append(painterDiv,paintingDiv)
+
+
+    
+}
+
+//function for display artists show page
+
+function displayArtist(painterObj){
+    //styling for artist show page
+
+    pageContainer.innerText = ""
+    const painterPortrait = document.createElement("img")
+    painterPortrait.className = "artist-image-resize"
+    const painterName = document.createElement("p")
+    const painterYears = document.createElement("p")
+    const painterGenre = document.createElement("p")
+    const painterNationality = document.createElement("p")
+    const painterBio = document.createElement("p")
+    //putting info into a variable we just created
+    painterPortrait.src = painterObj.portrait
+    painterName.innerText = painterObj.name
+    painterYears.innerText = painterObj.years
+    painterGenre.innerText = painterObj.genre
+    painterNationality.innerText = painterObj.nationality
+    painterBio.innerText = painterObj.bio
+    //append to page container
+    pageContainer.append(painterPortrait, painterName, painterYears, painterGenre, painterNationality, painterBio)
 }
 
 
@@ -277,7 +323,7 @@ function createFavorites(favoritePaintingsArr){
         })
 
         //append to div
-        favoriteDiv.append(pTag, imageElement,deleteBtn)
+        favoriteDiv.append(imageElement,pTag,deleteBtn)
         
         //append new div to page container
         pageContainer.append(favoriteDiv)
