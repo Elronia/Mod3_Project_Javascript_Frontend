@@ -57,28 +57,36 @@ a{
     margin: 15px;
 }
 
+.big-on-hover{
+    transition: transform 1.5s;
+}
 
-.btn-side-by-side{
+.big-on-hover:hover{
+    transform: scale(1.1, 1.1);
+}
+
+.side-by-side{
     display:flex;
     flex-direction: row;
     justify-content: center;
 }
 
-.btn-side-by-side > button{
-    width: 45%;
+.fav{
     padding:10px;
     margin:10px;
+    font-size:20px;
 }
 
 .artist-page-li{
     font-size:50px;
     font-family: "Helvetica Now";
+    color:rgb(141, 137, 137);
     margin:10px;
     transition: 1s;
 }
 
 .artist-page-li:hover{
-    text-decoration: underline;
+    color:black;
     cursor: pointer;
 }
 
@@ -122,14 +130,14 @@ a{
 
 .logOutBtn{
     padding:10px;
-    background-color:firebrick;
+    background-color: #b58d20;
     color:white;
-    border: solid firebrick;
+    border: solid #b58d20;
     border-radius: 15%;
 }
 
 .logOutBtn:hover{
-    color:red;
+    color: #b58d20;
     background-color: white;
     cursor: pointer;
 }
@@ -139,3 +147,8 @@ a{
     margin:5px;
 }
 
+/* next 2 classes are for Favorite button */
+.heart{
+    color: red;
+    font-size: 20px;
+}

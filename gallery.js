@@ -41,22 +41,26 @@ function turnObjectToImage(paintingObject){
     imageElement.src = image
     imageElement.style.height = "500px"
     imageElement.style.maxWidth = "auto"
+    imageElement.className = "big-on-hover"
 
     //create full-size and favorite buttons
     const buttonDiv = document.createElement("div")
-    buttonDiv.className = "btn-side-by-side"
-    const fullSizeButton = document.createElement("button")
-    fullSizeButton.innerText = "see full size"
-    const favoriteButton = document.createElement("button")
-    favoriteButton.innerText = "favorite ♥️"
+    buttonDiv.className = "side-by-side"
+    const favorite = document.createElement("span")
+    favorite.innerText = "♡"
+    favorite.className = "heart"
+    const paintingName = document.createElement("p")
+    paintingName.className = "fav"
+    paintingName.innerText = paintingObject.name
+    paintingName.append(favorite)
 
     //append unstable elements to pageContainer
-    buttonDiv.append(fullSizeButton, favoriteButton)
+    buttonDiv.append(paintingName)
     imageDiv.append(imageElement, buttonDiv)
     pageContainer.append(imageDiv)
 
-    //Add Event Listener to See Full Size Button
-    fullSizeButton.addEventListener("click", () => {
+    //Add Event Listener to See painting
+    imageElement.addEventListener("click", () => {
         pageContainer.innerText = ""
         dispayPaintingShow(paintingObject)
         // console.log(paintingObject)
@@ -66,7 +70,8 @@ function turnObjectToImage(paintingObject){
 
 
     //Add Event Listener to Favorite button
-    favoriteButton.addEventListener("click", () => {
+    favorite.addEventListener("click", () => {
+        favorite.innerText = "♥️"
         addFavorite(paintingObject)
     })
     
