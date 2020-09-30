@@ -81,7 +81,7 @@ a{
 }
 
 .artist-image-resize{
-    height: 300px;
+    height: 400px;
     width: auto;
 }
 
@@ -97,5 +97,10 @@ a{
     color:red;
     background-color: white;
     cursor: pointer;
+}
+
+.delete-btn{
+    padding:10px;
+    margin:5px;
 }
 

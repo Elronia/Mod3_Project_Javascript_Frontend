@@ -247,15 +247,37 @@ function createFavorites(favoritePaintingsArr){
 
     //iterate over favoriteArr to append html of favorite to div
     favoritePaintingsArr.forEach( painting => {
-        const pTag = document.createElement("p") //the title of the painting goes here
+        //p tag for title of painting
+        const pTag = document.createElement("p")
         pTag.innerText = painting.name
 
-        const imageElement = document.createElement("img") //the painting goes here
+        //image tag for painting
+        const imageElement = document.createElement("img") 
         imageElement.src = painting.image
         imageElement.className = "artist-image-resize"
 
+        //delete button for favorite
+        const deleteBtn = document.createElement("button")
+        deleteBtn.className = "delete-btn"
+        deleteBtn.innerText = "Delete"
+
+        //Event Listener for Delete Button
+        deleteBtn.addEventListener("click", () =>{
+            const deleteRoute = `${favoritesUrl}/${painting.id}`
+            fetch(deleteRoute, {
+                method:"DELETE"
+            })
+            .then(res => res.json())
+            .then(deletedPainting => {
+                //delete painting from front end
+                pTag.remove()
+                imageElement.remove()
+                deleteBtn.remove()
+            })
+        })
+
         //append to div
-        favoriteDiv.append(pTag, imageElement)
+        favoriteDiv.append(pTag, imageElement,deleteBtn)
         
         //append new div to page container
         pageContainer.append(favoriteDiv)
@@ -263,7 +285,7 @@ function createFavorites(favoritePaintingsArr){
 }
 
 // Function to add favorite
-function addFavorite(paintingObj) {
+function addFavorite(paintingObj){
     fetch(favoritesUrl, {
         method: "POST",
         headers: {
@@ -281,6 +303,10 @@ function addFavorite(paintingObj) {
         
     })
 }
+
+// function deleteFavorite(){
+//     fetch(`${favoritesUrl}/`)
+// }
 
 
 //========================Event Listeners=================================
