@@ -10,6 +10,8 @@ const artists = document.querySelector("#artists")
 const loggedIn = document.querySelector("#logged-in")
 const navBar = document.querySelector("ul")
 
+let globalPainter = {}
+
 
 
 
@@ -57,7 +59,11 @@ function turnObjectToImage(paintingObject){
     fullSizeButton.addEventListener("click", () => {
         pageContainer.innerText = ""
         dispayPaintingShow(paintingObject)
+        // console.log(paintingObject)
+
+        globalPainter = paintingObject.painter
     })
+
 
     //Add Event Listener to Favorite button
     favoriteButton.addEventListener("click", () => {
@@ -123,6 +129,7 @@ function dispayPaintingShow(paintingObj){
 
     const painterDiv = document.createElement("div")
     const painterImage = document.createElement("img")
+    painterImage.className = "alternative"
     const painterName = document.createElement("p")
     const painterNationality = document.createElement("p")
     const genre = document.createElement("p")
@@ -138,6 +145,11 @@ function dispayPaintingShow(paintingObj){
     paintingDiv.append(paintingImage,paintingName,yearMade)
     painterDiv.append(painterImage,painterName,painterNationality,genre)
     pageContainer.append(painterDiv,paintingDiv)
+
+    //event listener for painter image to lead back to their info
+    painterImage.addEventListener("click", () =>{
+        displayArtist(globalPainter)
+    })
 
 
     
@@ -292,12 +304,13 @@ function displayFavorites(user_id) {
     fetch(`http://localhost:3000/users/${localStorage.user_id}`)
         .then(res => res.json())
         .then(user => {
-            createFavorites(user.paintings)     
+            createFavorites(user.paintings,user.favorites)
+            // console.log(user.)     
         })
 }
 
 //helper function for display favorites
-function createFavorites(favoritePaintingsArr){
+function createFavorites(favoritePaintingsArr,favoriteIdArr){
     //create div element
     const favoriteDiv = document.createElement("div")
 
@@ -353,7 +366,7 @@ function addFavorite(paintingObj){
                 user_id: localStorage.user_id
             })
     })
-    .then(res => res.text())
+    .then(res => res.json())
     .then(favorites => {
         alert(`Added ${paintingObj.name} to Favorites!`)
         
@@ -401,3 +414,6 @@ favorites.addEventListener("click", () => {
 //==========================render starting page=========================
 
 displayLogInForm()
+
+console.log(globalPainter)
+
