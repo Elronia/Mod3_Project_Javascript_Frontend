@@ -234,6 +234,7 @@ function displayLogInForm(){
     input.id = "username";
     //create a button
     const submit = document.createElement("input");
+    submit.className = "submit-button";
     submit.type = "submit";
     submit.text = "Log In"
     submit.value = "Submit";

@@ -16,9 +16,15 @@ header{
     position: sticky;
 }
 
+#gallery{
+    font-family: "Charm", sans-serif;
+    font-size: 25px;
+    color: #b58d20;
+}
+
 li{
     list-style-type: none;
-    padding: 0 25px 0 25px;
+    padding: 0 25px 0 10px;
     display: inline;
 }
 
@@ -86,8 +92,8 @@ a{
 }
 
 #login-form{
-    padding:20px;
-    margin-top:40px;
+    padding:50px;
+    margin-top:70px;
     border:double black;
     background-color: floralwhite;
     
@@ -95,6 +101,17 @@ a{
 
 #login-form > label,input {
     margin:15px 0 10px 0;
+}
+
+.submit-button{
+    background-color: #b58d20;
+    color: white;
+    border-radius: 3.6px;
+    border-style: none;
+    text-indent: 0px;
+    box-shadow: none;
+    width: 70%;
+    height: 25%;
 }
 
 .logOutBtn{
