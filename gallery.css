@@ -5,6 +5,11 @@ html,body{
 
 body{
     min-height:100vh;
+    background-color: #fff1e6;
+    background-image: url("https://images.unsplash.com/photo-1589878667944-ef8a3c2e5cd3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1502&q=80"); /* The image used */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
     /* display:flex;
     flex-direction:column;
     align-content:center; */
