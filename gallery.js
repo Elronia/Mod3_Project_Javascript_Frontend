@@ -170,18 +170,18 @@ function displayArtist(painterObj){
 
 
 //helper function for displayPainters
-function generatePainterImages(painterObj){
-    const painterImageLi = document.createElement("li")
-    painterImageLi.style.display = "none"
-    const painterImage = document.createElement("img")
-    painterImage.style.width = "auto"
-    painterImage.style.height = "250px"
+// function generatePainterImages(painterObj){
+//     const painterImageLi = document.createElement("li")
+//     painterImageLi.style.display = "none"
+//     const painterImage = document.createElement("img")
+//     painterImage.style.width = "auto"
+//     painterImage.style.height = "250px"
 
-    painterImage.src = painterObj.portrait
+//     painterImage.src = painterObj.portrait
 
-    painterImageLi.append(painterImage)
-    return painterImageLi
-}
+//     painterImageLi.append(painterImage)
+//     return painterImageLi
+// }
 
 //Login function
 
@@ -223,7 +223,11 @@ function displayLogInForm(){
     pageContainer.innerText = ""
     //create a form
     const form = document.createElement("form");
+    form.id = "login-form"
     //create input element
+    const label = document.createElement("label")
+    label.for = "username"
+    label.innerText = "Enter Username:"
     const input = document.createElement("input");
     input.type = "text";
     input.name = "username";
@@ -231,11 +235,16 @@ function displayLogInForm(){
     //create a button
     const submit = document.createElement("input");
     submit.type = "submit";
+    submit.text = "Log In"
     submit.value = "Submit";
+    const spacer1 = document.createElement("br")
+    const spacer2 = document.createElement("br")
     // add all elements to the form
-    form.append(input,submit);
+    form.append(label,spacer1,input,spacer2,submit);
   // add the form inside the body
-    pageContainer.append(form); //pure javascript
+    pageContainer.append(form);
+
+
     // Event Listener for form
     form.addEventListener("submit", (evt) => {
         evt.preventDefault()

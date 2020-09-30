@@ -85,6 +85,18 @@ a{
     width: auto;
 }
 
+#login-form{
+    padding:20px;
+    margin-top:40px;
+    border:double black;
+    background-color: floralwhite;
+    
+}
+
+#login-form > label,input {
+    margin:15px 0 10px 0;
+}
+
 .logOutBtn{
     padding:10px;
     background-color:firebrick;
