@@ -170,18 +170,18 @@ function displayArtist(painterObj){
 
 
 //helper function for displayPainters
-// function generatePainterImages(painterObj){
-//     const painterImageLi = document.createElement("li")
-//     painterImageLi.style.display = "none"
-//     const painterImage = document.createElement("img")
-//     painterImage.style.width = "auto"
-//     painterImage.style.height = "250px"
+function generatePainterImages(painterObj){
+    const painterImageLi = document.createElement("li")
+    painterImageLi.style.display = "none"
+    const painterImage = document.createElement("img")
+    painterImage.style.width = "auto"
+    painterImage.style.height = "250px"
 
-//     painterImage.src = painterObj.portrait
+    painterImage.src = painterObj.portrait
 
-//     painterImageLi.append(painterImage)
-//     return painterImageLi
-// }
+    painterImageLi.append(painterImage)
+    return painterImageLi
+}
 
 //Login function
 
