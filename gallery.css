@@ -3,6 +3,10 @@ html,body{
     padding:0;
 }
 
+*{
+    font-family: "Helvetica Now";
+}
+
 body{
     min-height:100vh;
     background-color: #fff1e6;
@@ -19,6 +23,7 @@ header{
     background-color:whitesmoke;
     padding:10px;
     position: sticky;
+    font-size:20px;
 }
 
 #gallery{
@@ -84,7 +89,6 @@ a{
 
 .artist-page-li{
     font-size:50px;
-    font-family: "Helvetica Now";
     color:rgb(141, 137, 137);
     margin:10px;
     transition: 1s;
