@@ -47,7 +47,7 @@ function turnObjectToImage(paintingObject){
     const buttonDiv = document.createElement("div")
     buttonDiv.className = "side-by-side"
     const favorite = document.createElement("span")
-    favorite.innerText = "♡"
+    favorite.innerHTML = "<i class=\"fa fa-heart-o\" aria-hidden=\"true\"></i>"
     favorite.className = "heart"
     const paintingName = document.createElement("p")
     paintingName.className = "fav"
@@ -71,7 +71,8 @@ function turnObjectToImage(paintingObject){
 
     //Add Event Listener to Favorite button
     favorite.addEventListener("click", () => {
-        favorite.innerText = "♥️"
+        favorite.innerHTML = "<i class=\"fa fa-heart\" aria-hidden=\"true\"></i>"
+        favorite.style.color = "#b58d20"
         addFavorite(paintingObject)
     })
     
@@ -107,6 +108,8 @@ function displayPainters() {
                 ul.append(li)
                 // Event Listener for artist Li
                 li.addEventListener("click", () => {
+                    pageContainer.style.justifyContent = "center"
+                    pageContainer.style.flexDirection = "column"
                     displayArtist(painterObj)
 
                 })
@@ -124,13 +127,17 @@ function dispayPaintingShow(paintingObj){
     //alread have access to the painting from the argument
     const paintingDiv = document.createElement("div")
     const paintingImage = document.createElement("img")
-    paintingImage.className = "artist-image-resize"
+    paintingImage.className = "stretch-painting"
     const paintingName = document.createElement("p")
     const yearMade = document.createElement("p")
 
     paintingImage.src = paintingObj.image
     paintingName.innerText = paintingObj.name
     yearMade.innerText = paintingObj.year
+
+    const nameAndYear = document.createElement("p")
+    nameAndYear.innerText = `"${paintingName.innerText}", ${yearMade.innerText}`
+    nameAndYear.className = "center-text-under-painting"
 
     const painterDiv = document.createElement("div")
     const painterImage = document.createElement("img")
@@ -139,15 +146,20 @@ function dispayPaintingShow(paintingObj){
     const painterNationality = document.createElement("p")
     const genre = document.createElement("p")
 
-    const learnMore = document.createElement("button")
     
     painterImage.src = paintingObj.painter.portrait
     painterName.innerText = paintingObj.painter.name
     painterNationality.innerText = paintingObj.painter.nationality
     genre.innerText = paintingObj.painter.genre
 
+    //favorite button to be put under painting
+    const favButton = document.createElement("button")
+    favButton.innerText = "Favorite 🤍"
+    favButton.className = "fav-btn"
+
+
     //append everything to page
-    paintingDiv.append(paintingImage,paintingName,yearMade)
+    paintingDiv.append(paintingImage,nameAndYear,favButton)
     painterDiv.append(painterImage,painterName,painterNationality,genre)
     pageContainer.append(painterDiv,paintingDiv)
 
@@ -156,6 +168,10 @@ function dispayPaintingShow(paintingObj){
         displayArtist(globalPainter)
     })
 
+    //event listener to allow user to favorite a painting
+    favButton.addEventListener("click", () => {
+        addFavorite(paintingObj)
+    })
 
     
 }
@@ -166,22 +182,38 @@ function displayArtist(painterObj){
     //styling for artist show page
 
     pageContainer.innerText = ""
+    //painter portrait and painterInfo will go side by side
     const painterPortrait = document.createElement("img")
-    painterPortrait.className = "artist-image-resize"
+    painterPortrait.className = "alternative"
+
+    //everything for painterInfo goes here
+    painterInfo = document.createElement("div")
+
+    //class to add bigger font to all children of painterInfo
+    painterInfo.className = "painter-info"
     const painterName = document.createElement("p")
     const painterYears = document.createElement("p")
     const painterGenre = document.createElement("p")
     const painterNationality = document.createElement("p")
     const painterBio = document.createElement("p")
-    //putting info into a variable we just created
+    painterBio.className = "painter-bio"
+
+    painterInfo.append(painterName,painterYears,painterGenre,painterNationality)
+    //I need a div to wrap painterInfo and portrait in
+    const portraitAndInfo = document.createElement("div")
+    portraitAndInfo.append(painterPortrait,painterInfo,painterBio)
+    // portraitAndInfo.className = "portrait-and-info"
+
+    //assigning the variables created above with data from db
     painterPortrait.src = painterObj.portrait
     painterName.innerText = painterObj.name
     painterYears.innerText = painterObj.years
     painterGenre.innerText = painterObj.genre
     painterNationality.innerText = painterObj.nationality
     painterBio.innerText = painterObj.bio
-    //append to page container
-    pageContainer.append(painterPortrait, painterName, painterYears, painterGenre, painterNationality, painterBio)
+    //append to painter description div
+
+    pageContainer.append(portraitAndInfo)
 }
 
 
@@ -244,17 +276,18 @@ function displayLogInForm(){
     //create input element
     const label = document.createElement("label")
     label.for = "username"
-    label.innerText = "Enter Username:"
+    label.innerText = "Username:"
     const input = document.createElement("input");
     input.type = "text";
     input.name = "username";
     input.id = "username";
+    input.placeholder = "Enter Username..."
     //create a button
     const submit = document.createElement("input");
     submit.className = "submit-button";
     submit.type = "submit";
     submit.text = "Log In"
-    submit.value = "Submit";
+    submit.value = "Log in";
     const spacer1 = document.createElement("br")
     const spacer2 = document.createElement("br")
     // add all elements to the form
@@ -280,6 +313,9 @@ function displayLogInForm(){
 
         //add event listener to let user log out
         logOutBtn.addEventListener("click", ()=>{
+            //fixes issue in which form renders too wide when logging out from artist show
+            pageContainer.style.justifyContent = "center"
+            pageContainer.style.flexDirection = "row"
             logOut(logOutBtn)
         })
 
@@ -298,6 +334,7 @@ function displayLogInForm(){
     //and switch the text back to Not logged in yet like it was at the beginning
     //also need to clear out localStorage
     btn.remove()
+    
     loggedIn.innerText = "Not Logged in Yet"
     localStorage.clear()
     displayLogInForm()
@@ -309,20 +346,28 @@ function displayFavorites(user_id) {
     fetch(`http://localhost:3000/users/${localStorage.user_id}`)
         .then(res => res.json())
         .then(user => {
-            createFavorites(user.paintings,user.favorites)
-            // console.log(user.)     
+            createFavorites(user.paintings,user.favorites)    
         })
 }
 
 //helper function for display favorites
 function createFavorites(favoritePaintingsArr,favoriteIdArr){
-    //create div element
-    const favoriteDiv = document.createElement("div")
+    //title of favorites page
+    // const title = document.createElement("h1")
+    // title.innerText = "Your Favorite Paintings"
+    // title.className = "fav-title"
+
+    //append title to page container before forEach loop
+    // pageContainer.append(title)
 
     //iterate over favoriteArr to append html of favorite to div
     favoritePaintingsArr.forEach( painting => {
+        //create div element
+        const favoriteDiv = document.createElement("div")
+
         //p tag for title of painting
         const pTag = document.createElement("p")
+        pTag.className = "center-text-under-painting"
         pTag.innerText = painting.name
 
         //image tag for painting
@@ -333,7 +378,7 @@ function createFavorites(favoritePaintingsArr,favoriteIdArr){
         //delete button for favorite
         const deleteBtn = document.createElement("button")
         deleteBtn.className = "delete-btn"
-        deleteBtn.innerText = "Delete"
+        deleteBtn.innerText = "Delete From Favorites"
 
         //Event Listener for Delete Button
         deleteBtn.addEventListener("click", () =>{
@@ -389,6 +434,7 @@ function addFavorite(paintingObj){
 gallery.addEventListener("click", () => {
     pageContainer.innerText = ""
     pageContainer.style.justifyContent = "center"
+    pageContainer.style.flexDirection = "row"
     displayGallery()
 })
 
@@ -402,6 +448,7 @@ artists.addEventListener("click", () => {
 favorites.addEventListener("click", () => {
     //clear out page container to make room for user favorites div
     pageContainer.innerText = ""
+    pageContainer.flexDirection = "column"
     displayFavorites()
 })
 
@@ -418,7 +465,7 @@ favorites.addEventListener("click", () => {
 
 //==========================render starting page=========================
 
-displayLogInForm()
 
-console.log(globalPainter)
+//first page that is rendered to user
+displayLogInForm()
 
