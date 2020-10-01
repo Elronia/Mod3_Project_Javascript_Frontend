@@ -23,17 +23,13 @@ header{
     background-color:whitesmoke;
     padding:10px;
     position: sticky;
-    font-size:20px;
+    font-size:28px;
 }
 
 #gallery{
     font-family: "Charm", sans-serif;
     font-size: 28px;
     color: #b58d20;
-}
-
-#favorites,#artists{
-    font-size:28px;
 }
 
 li{
@@ -49,6 +45,7 @@ a{
 
 .move-right{
     float:right;
+    margin:6px 0 -6px 0;
 }
 
 #page-container{
@@ -253,4 +250,41 @@ a{
     margin: 10px 0 10px 0;
     color: #b58d20;
 }
+
+
+#update-form{
+    padding:60px 100px 60px 100px;
+    margin-top:70px;
+    border:double #b58d20;
+    border-radius:15%;
+    background-color:ghostwhite;
+    opacity:0.8;
+}
+
+#new-username{
+    background-color:gainsboro;
+    border:#b58d20;
+    width:85%;
+    padding:14px;
+    text-align: center;
+    font-size:18px;
+}
+
+.update-button{
+    color: white;
+    border-radius: 3.6px;
+    border-style: none;
+    box-shadow: none;
+    width: 97%;
+    height: 25%;
+    padding:12px;
+    font-size: 17px;
+    background-color: #b58d20;
+    vertical-align: middle;
+}
+
+.update-button:hover{
+    cursor: pointer;
+}
+
 

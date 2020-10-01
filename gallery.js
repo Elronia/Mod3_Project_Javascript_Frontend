@@ -2,12 +2,14 @@ const paintingsUrl = "http://localhost:3000/paintings"
 const paintersUrl = "http://localhost:3000/painters"
 const loginUrl = "http://localhost:3000/login"
 const favoritesUrl = "http://localhost:3000/favorites"
+const usersUrl = "http://localhost:3000/users"
 //Stable elements
 const pageContainer = document.querySelector("div#page-container")
 const gallery = document.querySelector("#gallery")
 const favorites = document.querySelector("#favorites")
 const artists = document.querySelector("#artists")
 const loggedIn = document.querySelector("#logged-in")
+const changeUsername = document.querySelector("#change-username")
 const navBar = document.querySelector("ul")
 
 let globalPainter = {}
@@ -278,6 +280,7 @@ function displayLogInForm(){
     label.for = "username"
     label.innerText = "Username:"
     const input = document.createElement("input");
+    input.required = true;
     input.type = "text";
     input.name = "username";
     input.id = "username";
@@ -335,7 +338,7 @@ function displayLogInForm(){
     //also need to clear out localStorage
     btn.remove()
     
-    loggedIn.innerText = "Not Logged in Yet"
+    loggedIn.innerText = "Not Logged in"
     localStorage.clear()
     displayLogInForm()
   }
@@ -427,29 +430,120 @@ function addFavorite(paintingObj){
 //     fetch(`${favoritesUrl}/`)
 // }
 
+//Functions that allow the user to update their username
+
+function displayUpdateForm(){
+    pageContainer.innerText = ""
+    //create a form
+    const updateForm = document.createElement("form");
+    updateForm.id = "update-form"
+    //create input element
+    const label = document.createElement("label")
+    label.for = "username"
+    label.innerText = "New Username:"
+    const input = document.createElement("input");
+    input.required = true;
+    input.type = "text";
+    input.name = "new username";
+    input.id = "new-username";
+    input.placeholder = "Enter New Username..."
+    //create a button
+    const update = document.createElement("input");
+    update.className = "update-button";
+    update.type = "submit";
+    update.text = "Change My Username"
+    update.value = "Change My Username";
+    const spacer1 = document.createElement("br")
+    const spacer2 = document.createElement("br")
+    // add all elements to the form
+    updateForm.append(label,spacer1,input,spacer2,update);
+  // add the form inside the body
+    pageContainer.append(updateForm);
+
+    //add event listener to update button
+    updateForm.addEventListener("submit", (evt) => {
+        evt.preventDefault()
+        console.log("I hit it")
+        //udpate in the backend with updateUsername()
+        //redirect back to the displayGallery()
+        const user = evt.target["new username"].value
+
+        //fetch request for update
+        updateUsername(user)
+        pageContainer.innerText = ""
+
+        displayGallery()
+        
+    })
+}
+
+function updateUsername(formData){
+    const updateRoute = `${usersUrl}/${localStorage.user_id}`
+    fetch(updateRoute, {
+        method:"PATCH",
+        headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+        },
+        body:JSON.stringify({
+            username:formData
+        })
+    })
+    .then( res => res.json())
+    .then(updatedUser => {
+        loggedIn.innerText = updatedUser.username
+    })
+}
+
 
 //========================Event Listeners=================================
 
 //gallery Event Listener
 gallery.addEventListener("click", () => {
-    pageContainer.innerText = ""
-    pageContainer.style.justifyContent = "center"
-    pageContainer.style.flexDirection = "row"
-    displayGallery()
+    if (localStorage.user_id){
+        pageContainer.innerText = ""
+        pageContainer.style.justifyContent = "center"
+        pageContainer.style.flexDirection = "row"
+        displayGallery()
+    }
+    else{
+        alert("Pleae Log in to view this page")
+    }
 })
 
 //artists Event Listener
 artists.addEventListener("click", () => {
+   if(localStorage.user_id){
     pageContainer.innerText = ""
     displayPainters()
+   }else{
+    alert("Pleae Log in to view this page")
+   }
 })
 
 //favorites Event Listener
 favorites.addEventListener("click", () => {
-    //clear out page container to make room for user favorites div
-    pageContainer.innerText = ""
-    pageContainer.flexDirection = "column"
-    displayFavorites()
+    if(localStorage.user_id){
+        //clear out page container to make room for user favorites div
+        pageContainer.innerText = ""
+        pageContainer.flexDirection = "column"
+        displayFavorites()
+    }
+    else{
+        alert("Pleae Log in to view this page")
+    }
+})
+
+//change username Event Listener
+changeUsername.addEventListener("click", () => {
+    if(localStorage.user_id){
+        pageContainer.flexDirection = "row"
+        pageContainer.justifyContent = "center"
+        displayUpdateForm()
+    }
+    else{
+        alert("Pleae Log in to view this page")
+    }
 })
 
 
