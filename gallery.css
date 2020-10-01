@@ -23,12 +23,12 @@ header{
     background-color:whitesmoke;
     padding:10px;
     position: sticky;
-    font-size:28px;
+    font-size:25px;
 }
 
 #gallery{
     font-family: "Charm", sans-serif;
-    font-size: 28px;
+    font-size: 32px;
     color: #b58d20;
 }
 

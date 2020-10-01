@@ -515,6 +515,7 @@ gallery.addEventListener("click", () => {
 artists.addEventListener("click", () => {
    if(localStorage.user_id){
     pageContainer.innerText = ""
+    pageContainer.style.justifyContent = "flex-start"
     displayPainters()
    }else{
     alert("Pleae Log in to view this page")
