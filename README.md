@@ -21,5 +21,7 @@ Art Gallery is a full-stack web application where you can browse around the gall
 * PostgreSQL
 * HTML/CSS
 * Active Record
-
+## Tools
+* Rack CORS
+* ActiveModel::Serializer
 
