@@ -17,7 +17,7 @@ Art Gallery is a full-stack web application where you can browse around the gall
 * There are 4 models with `has_many`, `belongs_to` and `has_many through` associations
 ## Tech Stack
 * Vanilla JavaScript (Frontend)
-* Ruby on Rails API (Backend: https://github.com/isabelxklee/plant-flashcards-backend)
+* Ruby on Rails API (Backend: https://github.com/Elronia/Mod3_Project_Gallery_Rails_Backend)
 * PostgreSQL
 * HTML/CSS
 * Active Record
