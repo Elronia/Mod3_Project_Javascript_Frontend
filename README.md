@@ -1,5 +1,11 @@
 # Mod3_Project_Javascript_Frontend
 Art Gallery is a full-stack web application where you can browse around the gallery of famous artists' paintings. The inspiration of this app came during the time of COVID when most of the museums were closed. Art Gallery provides an opportunity to learn more about painters and their artworks.
+## Getting Started
+### Launching Frontend
+* Have the rails server running on "localhost:3000"
+* cd into Mod3_Project_Javascript_Frontend
+* Open html file in browser
+  $ open gallery.html
 ## Features
 ### CRUD Operations
 * User is able to enter the name and the username
@@ -9,4 +15,11 @@ Art Gallery is a full-stack web application where you can browse around the gall
 * User is able to learn more about a particular artist that drew the painting that they clicked 
 ### ActiveRecord Associations
 * There are 4 models with `has_many`, `belongs_to` and `has_many through` associations
+## Tech Stack
+* Vanilla JavaScript (Frontend)
+* Ruby on Rails API (Backend: https://github.com/isabelxklee/plant-flashcards-backend)
+* PostgreSQL
+* HTML/CSS
+* Active Record
+
 
