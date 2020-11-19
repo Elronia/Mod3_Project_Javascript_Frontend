@@ -19,9 +19,10 @@ Art Gallery is a full-stack web application where you can browse around the gall
 * Vanilla JavaScript (Frontend)
 * Ruby on Rails API (Backend: https://github.com/Elronia/Mod3_Project_Gallery_Rails_Backend)
 * PostgreSQL
-* HTML/CSS
+* HTML
+* CSS
 * Active Record
 ## Tools
-* Rack CORS
-* ActiveModel::Serializer
+* [Rack CORS](https://github.com/cyu/rack-cors)
+* [ActiveModel::Serializer](https://github.com/rails-api/active_model_serializers)
 
