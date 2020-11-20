@@ -7,8 +7,10 @@ Art Gallery is a full-stack web application where you can browse around the gall
 * Open html file in browser
   $ open gallery.html
 ## Features
-### Login and Updating the username
+### User Login
 ![Profile](https://media.giphy.com/media/FDzZUmGzCavf0MZllT/giphy.gif)
+### Add
+![Favorite](https://media.giphy.com/media/Ad0QdILOtLaEg6QiQP/giphy.gif)
 ### CRUD Operations
 * User is able to enter the name and the username
 * User is able to add paintings to their favorites 
