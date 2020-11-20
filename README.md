@@ -7,6 +7,8 @@ Art Gallery is a full-stack web application where you can browse around the gall
 * Open html file in browser
   $ open gallery.html
 ## Features
+### Login and Updating the username
+![Profile](https://media.giphy.com/media/FDzZUmGzCavf0MZllT/giphy.gif)
 ### CRUD Operations
 * User is able to enter the name and the username
 * User is able to add paintings to their favorites 
@@ -25,4 +27,6 @@ Art Gallery is a full-stack web application where you can browse around the gall
 ## Tools
 * [Rack CORS](https://github.com/cyu/rack-cors)
 * [ActiveModel::Serializer](https://github.com/rails-api/active_model_serializers)
-
+## Creators
+* [Ekaterina Zarudnaya](https://github.com/Elronia)
+* [Patrick Pierre](https://github.com/pierrewebdev)
