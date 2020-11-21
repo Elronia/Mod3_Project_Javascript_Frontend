@@ -7,6 +7,18 @@ Art Gallery is a full-stack web application where you can browse around the gall
 * Open html file in browser
   $ open gallery.html
 ## Features
+### User Login and Change Username
+![Profile](https://media.giphy.com/media/JKuZbmMuazrCjGvxTu/giphy.gif)
+![Username](https://media.giphy.com/media/dpAu7H1zOwDgoXpHI2/giphy.gif)
+### Add to Favorites
+![Browse and Like](https://media.giphy.com/media/Ad0QdILOtLaEg6QiQP/giphy-downsized.gif)
+![Like](https://media.giphy.com/media/fX6i4sGHDzpZ7yXevf/giphy.gif)
+![Add to Favorites](https://media.giphy.com/media/wUq9UGCSNZ6TXIvjJP/giphy.gif)
+### Delete from Favorites
+![Delete from Favorites](https://media.giphy.com/media/AXKtzJU8txrV9waCX3/giphy.gif)
+### Learn more about a painting and its artist from both painting page and artist's page
+![Painting and painter](https://media.giphy.com/media/fz4buM5zfNXDzav0j0/giphy.gif)
+![Painter](https://media.giphy.com/media/QWu4A2uzG77A3WrSwK/giphy.gif)
 ### CRUD Operations
 * User is able to enter the name and the username
 * User is able to add paintings to their favorites 
@@ -25,4 +37,6 @@ Art Gallery is a full-stack web application where you can browse around the gall
 ## Tools
 * [Rack CORS](https://github.com/cyu/rack-cors)
 * [ActiveModel::Serializer](https://github.com/rails-api/active_model_serializers)
-
+## Creators
+* [Ekaterina Zarudnaya](https://github.com/Elronia)
+* [Patrick Pierre](https://github.com/pierrewebdev)
