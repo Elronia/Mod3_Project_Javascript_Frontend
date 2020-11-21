@@ -11,7 +11,7 @@ Art Gallery is a full-stack web application where you can browse around the gall
 ![Profile](https://media.giphy.com/media/FDzZUmGzCavf0MZllT/giphy.gif)
 ### Add to Favorites
 ![Add to favorites](https://media.giphy.com/media/Ad0QdILOtLaEg6QiQP/giphy-downsized.gif)
-### 
+### Learn more about a painting and its artist from both painting page and artist's page
 ![Painting and painter](https://media.giphy.com/media/fz4buM5zfNXDzav0j0/giphy.gif)
 ![Painter](https://media.giphy.com/media/QWu4A2uzG77A3WrSwK/giphy.gif)
 ### CRUD Operations
