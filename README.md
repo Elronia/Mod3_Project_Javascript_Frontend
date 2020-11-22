@@ -4,7 +4,7 @@ Art Gallery is a full stack web application where you can browse around the gall
 ### Launching Frontend
 * Have the rails server running on "localhost:3000"
 * cd into Mod3_Project_Javascript_Frontend
-* Open html file in browser
+* Open html file in browser  
   $ open gallery.html
 ## Features
 ### User Login and Change Username
