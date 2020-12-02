@@ -15,23 +15,26 @@ Art Gallery is a full stack web application where you can browse around the gall
 ## Project Images 📷
 ### User Login and Change Username Forms
 ![Login Form](https://res.cloudinary.com/elronia/image/upload/v1606948281/Gallery_Project3/Screen_Shot_2020-11-20_at_1.39.14_PM_inp2mi.png)
-![Change Username](https://res.cloudinary.com/elronia/image/upload/v1606948281/Gallery_Project3/Screen_Shot_2020-11-20_at_1.39.14_PM_inp2mi.png)
+![Change Username](https://res.cloudinary.com/elronia/image/upload/v1606948282/Gallery_Project3/Screen_Shot_2020-11-20_at_1.41.04_PM_m3gai0.png)
 * User is able to login along with changing his username
 ### Gallery Page
 ![Gallery Page](https://res.cloudinary.com/elronia/image/upload/v1606948282/Gallery_Project3/Screen_Shot_2020-11-20_at_1.51.25_PM_wd3h45.png)
 * Browse all the paintings of famous artists
+
 ![Like](https://res.cloudinary.com/elronia/image/upload/v1606948282/Gallery_Project3/Screen_Shot_2020-11-20_at_1.42.06_PM_sldrl5.png)
 * Put like which will add the painting into the favorites
+
 ![Add to Favorites](https://res.cloudinary.com/elronia/image/upload/v1606948283/Gallery_Project3/Screen_Shot_2020-11-20_at_2.03.59_PM_kamiml.png)
 ### Favorites Page
 ![Favorites](https://res.cloudinary.com/elronia/image/upload/v1606948283/Gallery_Project3/Screen_Shot_2020-11-20_at_1.45.21_PM_gvxjse.png)
 * See all the favorites
+
 ![Delete from favorites](https://res.cloudinary.com/elronia/image/upload/v1606948283/Gallery_Project3/Screen_Shot_2020-11-20_at_1.45.47_PM_qb4xul.png)
 * Remove from Favorites
 ## Features
 ### User Login and Change Username
 ![Login](https://media.giphy.com/media/JKuZbmMuazrCjGvxTu/giphy.gif)
-![Username](https://res.cloudinary.com/elronia/image/upload/v1606948282/Gallery_Project3/Screen_Shot_2020-11-20_at_1.41.04_PM_m3gai0.png)
+![Username](https://media.giphy.com/media/dpAu7H1zOwDgoXpHI2/giphy.gif)
 ### Add to Favorites
 ![Browse and Like](https://media.giphy.com/media/SqyqLkDvCUnHpr8ZQI/giphy-downsized.gif)
 ![Like](https://media.giphy.com/media/fX6i4sGHDzpZ7yXevf/giphy.gif)
