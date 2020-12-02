@@ -43,7 +43,6 @@ Art Gallery is a full stack web application where you can browse around the gall
 * Check all available painters
 * Clicking on the selected painter brings the user to the [Painter Page](painter-page)
 
-<a name="painter-page"/>
 ### Painter Page
 ![Painter Page](https://res.cloudinary.com/elronia/image/upload/v1606948282/Gallery_Project3/Screen_Shot_2020-11-20_at_1.47.04_PM_dlhghj.png)
 * Read more information about the painter
