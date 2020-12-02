@@ -33,7 +33,6 @@ Art Gallery is a full stack web application where you can browse around the gall
 ![Delete from favorites](https://res.cloudinary.com/elronia/image/upload/v1606948283/Gallery_Project3/Screen_Shot_2020-11-20_at_1.45.47_PM_qb4xul.png)
 * Remove from Favorites
 
-<a name="painting-page"/>
 ### Painting Page
 ![Painting One](https://res.cloudinary.com/elronia/image/upload/v1606948283/Gallery_Project3/Screen_Shot_2020-11-20_at_1.44.53_PM_ie3n4w.png)
 ![Painting Two](https://res.cloudinary.com/elronia/image/upload/v1606948282/Gallery_Project3/Screen_Shot_2020-11-20_at_1.42.37_PM_pmvjou.png)
