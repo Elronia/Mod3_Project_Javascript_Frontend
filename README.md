@@ -5,13 +5,13 @@ Art Gallery is a full stack web application where you can browse around the gall
 * Have the rails server running on "localhost:3000"
 * cd into Mod3_Project_Javascript_Frontend
 * Open html file in browser  
-  $ open gallery.html
+  ```$ open gallery.html```
 ## Features
 ### User Login and Change Username
 ![Profile](https://media.giphy.com/media/JKuZbmMuazrCjGvxTu/giphy.gif)
 ![Username](https://media.giphy.com/media/dpAu7H1zOwDgoXpHI2/giphy.gif)
 ### Add to Favorites
-![Browse and Like](https://media.giphy.com/media/Ad0QdILOtLaEg6QiQP/giphy-downsized.gif)
+![Browse and Like](https://giphy.com/gifs/SqyqLkDvCUnHpr8ZQI/html5)
 ![Like](https://media.giphy.com/media/fX6i4sGHDzpZ7yXevf/giphy.gif)
 ![Add to Favorites](https://media.giphy.com/media/wUq9UGCSNZ6TXIvjJP/giphy.gif)
 ### Delete from Favorites
