@@ -16,7 +16,7 @@ Art Gallery is a full stack web application where you can browse around the gall
 ### User Login and Change Username Forms
 ![Login Form](https://res.cloudinary.com/elronia/image/upload/v1606948281/Gallery_Project3/Screen_Shot_2020-11-20_at_1.39.14_PM_inp2mi.png)
 ![Change Username](https://res.cloudinary.com/elronia/image/upload/v1606948282/Gallery_Project3/Screen_Shot_2020-11-20_at_1.41.04_PM_m3gai0.png)
-* User is able to login along with changing his username
+* User is able to login and change the username
 ### Gallery Page
 ![Gallery Page](https://res.cloudinary.com/elronia/image/upload/v1606948282/Gallery_Project3/Screen_Shot_2020-11-20_at_1.51.25_PM_wd3h45.png)
 * Browse all the paintings of famous artists
@@ -25,12 +25,27 @@ Art Gallery is a full stack web application where you can browse around the gall
 * Put like which will add the painting into the favorites
 
 ![Add to Favorites](https://res.cloudinary.com/elronia/image/upload/v1606948283/Gallery_Project3/Screen_Shot_2020-11-20_at_2.03.59_PM_kamiml.png)
+* Clicking on the painting redirects the user to the [Painting Page](painting-page)
 ### Favorites Page
 ![Favorites](https://res.cloudinary.com/elronia/image/upload/v1606948283/Gallery_Project3/Screen_Shot_2020-11-20_at_1.45.21_PM_gvxjse.png)
 * See all the favorites
 
 ![Delete from favorites](https://res.cloudinary.com/elronia/image/upload/v1606948283/Gallery_Project3/Screen_Shot_2020-11-20_at_1.45.47_PM_qb4xul.png)
 * Remove from Favorites
+
+<a name="painting-page"/>
+### Painting Page
+![La Grenouillerre](https://res.cloudinary.com/elronia/image/upload/v1606948283/Gallery_Project3/Screen_Shot_2020-11-20_at_1.44.53_PM_ie3n4w.png)
+![Boullevard des Capucines](https://res.cloudinary.com/elronia/image/upload/v1606948282/Gallery_Project3/Screen_Shot_2020-11-20_at_1.42.37_PM_pmvjou.png)
+* See the chosen painting and it's painter
+### Painters' Page
+![List of Painters](https://res.cloudinary.com/elronia/image/upload/v1606948283/Gallery_Project3/Screen_Shot_2020-11-20_at_1.46.15_PM_kchq9k.png)
+* Check all available painters
+* Clicking on the selected painter brings the user to the [Painter Page](painter-page)
+<a name="painter-page"/>
+### Painter Page
+![Painter Page](https://res.cloudinary.com/elronia/image/upload/v1606948282/Gallery_Project3/Screen_Shot_2020-11-20_at_1.47.04_PM_dlhghj.png)
+* Read more information about the painter
 ## Features
 ### User Login and Change Username
 ![Login](https://media.giphy.com/media/JKuZbmMuazrCjGvxTu/giphy.gif)
