@@ -45,13 +45,16 @@ Art Gallery is a full stack web application where you can browse around the gall
 * Put like which will add the painting into the favorites
 
 ![Add to Favorites](https://res.cloudinary.com/elronia/image/upload/v1606948283/Gallery_Project3/Screen_Shot_2020-11-20_at_2.03.59_PM_kamiml.png)
-* Clicking on the painting redirects the user to the [Painting Page](painting-page)
+* Clicking on the painting redirects the user to the [Painting Page](#painting-page)
 ### Favorites Page
 ![Favorites](https://res.cloudinary.com/elronia/image/upload/v1606948283/Gallery_Project3/Screen_Shot_2020-11-20_at_1.45.21_PM_gvxjse.png)
 * See all the favorites
 
 ![Delete from favorites](https://res.cloudinary.com/elronia/image/upload/v1606948283/Gallery_Project3/Screen_Shot_2020-11-20_at_1.45.47_PM_qb4xul.png)
 * Remove from Favorites
+
+
+<a name="painting-page"/>
 
 ### Painting Page
 ![Painting One](https://res.cloudinary.com/elronia/image/upload/v1606948283/Gallery_Project3/Screen_Shot_2020-11-20_at_1.44.53_PM_ie3n4w.png)
@@ -60,7 +63,9 @@ Art Gallery is a full stack web application where you can browse around the gall
 ### Painters' Page
 ![List of Painters](https://res.cloudinary.com/elronia/image/upload/v1606948283/Gallery_Project3/Screen_Shot_2020-11-20_at_1.46.15_PM_kchq9k.png)
 * Check all available painters
-* Clicking on the selected painter brings the user to the [Painter Page](painter-page)
+* Clicking on the selected painter brings the user to the [Painter Page](#painter-page)
+
+<a name="painter-page"/>
 
 ### Painter Page
 ![Painter Page](https://res.cloudinary.com/elronia/image/upload/v1606948282/Gallery_Project3/Screen_Shot_2020-11-20_at_1.47.04_PM_dlhghj.png)
