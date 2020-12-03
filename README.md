@@ -1,17 +1,32 @@
 # Mod3_Project_Javascript_Frontend
 Art Gallery is a full stack web application where you can browse around the gallery of famous artists' paintings. The inspiration of this app came during the time of COVID when most of the museums were closed. Art Gallery provides an opportunity to learn more about painters and their artworks.
+## Table of Contents
+* [Getting Started](#getting-started)
+* [CRUD Operations](#crud-operations)
+* [Project Images](#project-images)
+* [Features](#features)
+* [ActiveRecord Associations](#active-record)
+* [Domain Model](#domain-model)
+* [Tech Stack](#tech-stack)
+* [Tools](#tools)
+
+<a name="getting-started"/>
 ## Getting Started
 ### Launching Frontend
 * Have the rails server running on "localhost:3000"
 * cd into Mod3_Project_Javascript_Frontend
 * Open html file in browser  
   ```$ open gallery.html```
-### CRUD Operations
+  
+<a name="crud-operations"/>
+## CRUD Operations
 * User is able to enter the name and the username
 * User is able to add paintings to their favorites 
 * User can click on a Painting and either see more information about it or add it to their favorites 
 * User can remove paintings from favorites
 * User is able to learn more about a particular artist that drew the painting that they clicked 
+
+<a name="project-images"/>
 ## Project Images 📷
 ### User Login and Change Username Forms
 ![Login Form](https://res.cloudinary.com/elronia/image/upload/v1606948281/Gallery_Project3/Screen_Shot_2020-11-20_at_1.39.14_PM_inp2mi.png)
@@ -45,6 +60,8 @@ Art Gallery is a full stack web application where you can browse around the gall
 ### Painter Page
 ![Painter Page](https://res.cloudinary.com/elronia/image/upload/v1606948282/Gallery_Project3/Screen_Shot_2020-11-20_at_1.47.04_PM_dlhghj.png)
 * Read more information about the painter
+
+<a name="features"/>
 ## Features
 ### User Login and Change Username
 ![Login](https://media.giphy.com/media/JKuZbmMuazrCjGvxTu/giphy.gif)
@@ -58,10 +75,16 @@ Art Gallery is a full stack web application where you can browse around the gall
 ### Learn more about a painting and its artist from both painting page and artist's page
 ![Painting and painter](https://media.giphy.com/media/fz4buM5zfNXDzav0j0/giphy.gif)
 ![Painter](https://media.giphy.com/media/QWu4A2uzG77A3WrSwK/giphy.gif)
+
+<a name="active-record"/>
 ### ActiveRecord Associations
 * There are 4 models with `has_many`, `belongs_to` and `has_many through` associations
+
+<a name="domain-model"/>
 ### Domain Model
 <img src='./image/Gallery_ERD.png'> </img>
+
+<a name="tech-stack"/>
 ## Tech Stack
 * Vanilla JavaScript (Frontend)
 * Ruby on Rails API (Backend: https://github.com/Elronia/Mod3_Project_Gallery_Rails_Backend)
@@ -69,6 +92,8 @@ Art Gallery is a full stack web application where you can browse around the gall
 * HTML
 * CSS
 * Active Record
+
+<a name="tools"/>
 ## Tools
 * [Rack CORS](https://github.com/cyu/rack-cors)
 * [ActiveModel::Serializer](https://github.com/rails-api/active_model_serializers)
