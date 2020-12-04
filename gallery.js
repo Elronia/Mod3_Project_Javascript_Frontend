@@ -507,7 +507,7 @@ gallery.addEventListener("click", () => {
         displayGallery()
     }
     else{
-        alert("Pleae Log in to view this page")
+        alert("Please Log in to view this page")
     }
 })
 
@@ -518,7 +518,7 @@ artists.addEventListener("click", () => {
     pageContainer.style.justifyContent = "flex-start"
     displayPainters()
    }else{
-    alert("Pleae Log in to view this page")
+    alert("Please Log in to view this page")
    }
 })
 
@@ -531,7 +531,7 @@ favorites.addEventListener("click", () => {
         displayFavorites()
     }
     else{
-        alert("Pleae Log in to view this page")
+        alert("Please Log in to view this page")
     }
 })
 
@@ -543,7 +543,7 @@ changeUsername.addEventListener("click", () => {
         displayUpdateForm()
     }
     else{
-        alert("Pleae Log in to view this page")
+        alert("Please Log in to view this page")
     }
 })
 
