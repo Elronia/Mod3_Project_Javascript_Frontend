@@ -1,8 +1,8 @@
-const paintingsUrl = "http://localhost:3000/paintings"
-const paintersUrl = "http://localhost:3000/painters"
-const loginUrl = "http://localhost:3000/login"
-const favoritesUrl = "http://localhost:3000/favorites"
-const usersUrl = "http://localhost:3000/users"
+const paintingsUrl = "https://interactive-art-gallery.herokuapp.com/paintings"
+const paintersUrl = "https://interactive-art-gallery.herokuapp.com/painters"
+const loginUrl = "https://interactive-art-gallery.herokuapp.com/login"
+const favoritesUrl = "https://interactive-art-gallery.herokuapp.com/favorites"
+const usersUrl = "https://interactive-art-gallery.herokuapp.com/users"
 //Stable elements
 const pageContainer = document.querySelector("div#page-container")
 const gallery = document.querySelector("#gallery")
@@ -346,7 +346,7 @@ function displayLogInForm(){
 
 //Display favorites
 function displayFavorites(user_id) {
-    fetch(`http://localhost:3000/users/${localStorage.user_id}`)
+    fetch(`https://interactive-art-gallery.herokuapp.com/users/${localStorage.user_id}`)
         .then(res => res.json())
         .then(user => {
             createFavorites(user.paintings,user.favorites)    
