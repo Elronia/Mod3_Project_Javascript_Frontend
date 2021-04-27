@@ -11,7 +11,6 @@ const artists = document.querySelector("#artists")
 const loggedIn = document.querySelector("#logged-in")
 const changeUsername = document.querySelector("#change-username")
 const navBar = document.querySelector("ul")
-
 let globalPainter = {}
 
 
@@ -367,6 +366,7 @@ function createFavorites(favoritePaintingsArr,favoriteIdArr){
     favoritePaintingsArr.forEach( painting => {
         //create div element
         const favoriteDiv = document.createElement("div")
+        favoriteDiv.className = "favorited-painting"
 
         //p tag for title of painting
         const pTag = document.createElement("p")
@@ -395,6 +395,8 @@ function createFavorites(favoritePaintingsArr,favoriteIdArr){
                 pTag.remove()
                 imageElement.remove()
                 deleteBtn.remove()
+                favoriteDiv.remove()
+                
             })
         })
 
@@ -527,7 +529,8 @@ favorites.addEventListener("click", () => {
     if(localStorage.user_id){
         //clear out page container to make room for user favorites div
         pageContainer.innerText = ""
-        pageContainer.flexDirection = "column"
+        pageContainer.style.flexDirection = "row"
+        pageContainer.style.justifyContent = "flex-start"
         displayFavorites()
     }
     else{
@@ -538,8 +541,8 @@ favorites.addEventListener("click", () => {
 //change username Event Listener
 changeUsername.addEventListener("click", () => {
     if(localStorage.user_id){
-        pageContainer.flexDirection = "row"
-        pageContainer.justifyContent = "center"
+        pageContainer.style.flexDirection = "row"
+        pageContainer.style.justifyContent = "center"
         displayUpdateForm()
     }
     else{
